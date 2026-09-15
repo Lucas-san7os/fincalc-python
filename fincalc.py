@@ -57,6 +57,13 @@ def calcular_valor_futuro(
     return vf
 
 
+def calcular_depreciacao_linear(
+    valor_inicial: float, valor_residual: float, vida_util_anos: int
+) -> float:
+    """Calcula o valor de depreciação anual de um ativo corporativo."""
+    return (valor_inicial - valor_residual) / vida_util_anos
+
+
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
 
@@ -75,6 +82,9 @@ if __name__ == "__main__":
     parcela = calcular_parcela_price(50000.0, 1.5, 60)
     print(f"Parcela Tabela Price (R$ 50.000 a 1.5% em 60x): R$ {parcela:.2f}")
 
-    # Teste Aluno 4 - Valor Futuro com Aportes
     valor_futuro = calcular_valor_futuro(500.0, 1.0, 24)
     print(f"Valor Futuro (Aporte R$ 500 a 1% em 24 meses): R$ {valor_futuro:.2f}")
+
+    # Teste Aluno 5 - Depreciação Linear
+    depreciacao = calcular_depreciacao_linear(10000.0, 2000.0, 5)
+    print(f"Depreciação Anual (Ativo R$ 10.000,00): R$ {depreciacao:.2f}")
