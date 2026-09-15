@@ -69,6 +69,11 @@ def converter_taxa_anual_para_mensal(taxa_anual: float) -> float:
     return (((1 + (taxa_anual / 100)) ** (1 / 12)) - 1) * 100
 
 
+def calcular_roi(ganho_obtido: float, custo_investimento: float) -> float:
+    """Calcula o Retorno sobre Investimento (ROI) em porcentagem."""
+    return ((ganho_obtido - custo_investimento) / custo_investimento) * 100
+
+
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
 
@@ -93,6 +98,9 @@ if __name__ == "__main__":
     depreciacao = calcular_depreciacao_linear(10000.0, 2000.0, 5)
     print(f"Depreciação Anual (Ativo R$ 10.000,00): R$ {depreciacao:.2f}")
 
-    # Teste Aluno 6 - Conversão de Taxa de Juros
     taxa_mensal = converter_taxa_anual_para_mensal(12.0)
     print(f"Taxa Mensal Equivalente (12% a.a.): {taxa_mensal:.2f}%")
+
+    # Teste Aluno 7 - Retorno sobre Investimento (ROI)
+    roi = calcular_roi(12500.0, 10000.0)
+    print(f"ROI do Investimento: {roi:.2f}%")
