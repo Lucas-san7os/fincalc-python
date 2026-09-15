@@ -64,6 +64,11 @@ def calcular_depreciacao_linear(
     return (valor_inicial - valor_residual) / vida_util_anos
 
 
+def converter_taxa_anual_para_mensal(taxa_anual: float) -> float:
+    """Converte uma taxa de juros anual equivalente para taxa mensal."""
+    return (((1 + (taxa_anual / 100)) ** (1 / 12)) - 1) * 100
+
+
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
 
@@ -85,6 +90,9 @@ if __name__ == "__main__":
     valor_futuro = calcular_valor_futuro(500.0, 1.0, 24)
     print(f"Valor Futuro (Aporte R$ 500 a 1% em 24 meses): R$ {valor_futuro:.2f}")
 
-    # Teste Aluno 5 - Depreciação Linear
     depreciacao = calcular_depreciacao_linear(10000.0, 2000.0, 5)
     print(f"Depreciação Anual (Ativo R$ 10.000,00): R$ {depreciacao:.2f}")
+
+    # Teste Aluno 6 - Conversão de Taxa de Juros
+    taxa_mensal = converter_taxa_anual_para_mensal(12.0)
+    print(f"Taxa Mensal Equivalente (12% a.a.): {taxa_mensal:.2f}%")
