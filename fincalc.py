@@ -48,6 +48,15 @@ def calcular_parcela_price(
     return parcela
 
 
+def calcular_valor_futuro(
+    aporte_mensal: float, taxa_mensal: float, meses: int
+) -> float:
+    """Calcula o valor futuro acumulado com aportes mensais recorrentes."""
+    i = taxa_mensal / 100
+    vf = aporte_mensal * (((1 + i) ** meses - 1) / i)
+    return vf
+
+
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
 
@@ -63,6 +72,9 @@ if __name__ == "__main__":
     imposto = calcular_irrf(3000.0)
     print(f"IRRF Retido na Fonte (Salário R$ 3.000,00): R$ {imposto:.2f}")
 
-    # Teste Aluno 3 - Tabela Price
     parcela = calcular_parcela_price(50000.0, 1.5, 60)
     print(f"Parcela Tabela Price (R$ 50.000 a 1.5% em 60x): R$ {parcela:.2f}")
+
+    # Teste Aluno 4 - Valor Futuro com Aportes
+    valor_futuro = calcular_valor_futuro(500.0, 1.0, 24)
+    print(f"Valor Futuro (Aporte R$ 500 a 1% em 24 meses): R$ {valor_futuro:.2f}")
