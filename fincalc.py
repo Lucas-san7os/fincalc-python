@@ -34,6 +34,9 @@ def calcular_aposentadoria(
 
 def calcular_irrf(salario_bruto: float) -> float:
     """Calcula a alíquota simplificada de Imposto de Renda Retido na Fonte."""
+    if salario_bruto < 0:
+        raise ValueError("O salário bruto não pode ser negativo.")
+
     if salario_bruto <= 2259.20:
         return 0.0
     elif salario_bruto <= 2826.65:
@@ -77,10 +80,6 @@ def converter_taxa_anual_para_mensal(taxa_anual: float) -> float:
 def calcular_roi(ganho_obtido: float, custo_investimento: float) -> float:
     """Calcula o Retorno sobre Investimento (ROI) em porcentagem."""
     return ((ganho_obtido - custo_investimento) / custo_investimento) * 100
-
-
-if __name__ == "__main__":
-    print("Iniciando o sistema FinCalc...")
 
     montante_simples = calcular_juros_simples(1000.0, 5.0, 2)
     print(f"Juros Simples: R$ {montante_simples:.2f}")
