@@ -29,6 +29,9 @@ def calcular_aposentadoria(
 
 def calcular_irrf(salario_bruto: float) -> float:
     """Calcula a alíquota simplificada de Imposto de Renda Retido na Fonte."""
+    if salario_bruto < 0:
+        raise ValueError("O salário bruto não pode ser negativo.")
+
     if salario_bruto <= 2259.20:
         return 0.0
     elif salario_bruto <= 2826.65:
@@ -37,10 +40,6 @@ def calcular_irrf(salario_bruto: float) -> float:
         return (salario_bruto * 0.15) - 381.44
     else:
         return (salario_bruto * 0.225) - 662.77
-
-
-if __name__ == "__main__":
-    print("Iniciando o sistema FinCalc...")
 
     # Testes Anteriores
     montante_simples = calcular_juros_simples(1000.0, 5.0, 2)
