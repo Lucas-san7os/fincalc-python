@@ -66,6 +66,9 @@ def calcular_depreciacao_linear(
 
 def converter_taxa_anual_para_mensal(taxa_anual: float) -> float:
     """Converte uma taxa de juros anual equivalente para taxa mensal."""
+    if taxa_anual <= -100:
+        raise ValueError("A taxa anual deve ser maior que -100%.")
+
     return (((1 + (taxa_anual / 100)) ** (1 / 12)) - 1) * 100
 
 
