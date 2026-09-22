@@ -114,7 +114,6 @@ def calcular_margem_liquida(
 
     return ((receita_total - custos_totais) / receita_total) * 100
 
-
     montante_simples = calcular_juros_simples(1000.0, 5.0, 2)
     print(f"Juros Simples: R$ {montante_simples:.2f}")
 
