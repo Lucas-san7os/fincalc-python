@@ -102,6 +102,19 @@ def calcular_roi(ganho_obtido: float, custo_investimento: float) -> float:
     """Calcula o Retorno sobre Investimento (ROI) em porcentagem."""
     return ((ganho_obtido - custo_investimento) / custo_investimento) * 100
 
+
+def calcular_margem_liquida(
+    receita_total: float, custos_totais: float
+) -> float:
+    """Calcula a margem líquida de uma empresa em porcentagem."""
+    if receita_total <= 0:
+        raise ValueError("A receita total deve ser maior que zero.")
+    if custos_totais < 0:
+        raise ValueError("Os custos totais não podem ser negativos.")
+
+    return ((receita_total - custos_totais) / receita_total) * 100
+
+
     montante_simples = calcular_juros_simples(1000.0, 5.0, 2)
     print(f"Juros Simples: R$ {montante_simples:.2f}")
 
